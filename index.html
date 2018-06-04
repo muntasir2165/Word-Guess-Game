@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+	<head>
+
+		<meta charset="UTF-8">
+	 	<title>Movie Name Guessing Game</title>
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+		<!-- Font Awesome icon library -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+	<body>
+
+		<div class="container text-center">
+
+			<div class="row">
+				<div class="col-md-12">
+					Guess The Movie Name!
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12" id="starting-instructions">
+					Press Space Bar to start the game.
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<p>Wins: <span id="wins"></span></p>
+				</div>
+				<div class="col-md-4">
+					<p>Number of guesses remaining: <span id="remaining-guesses"></span></p>
+				</div>
+				<div class="col-md-4">
+					<p>Losses: <span id="losses"></span></p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-8 offset-md-2 offset-md-right-2">
+					<p>Letters Guessed: </p>
+					<div class="row">
+						<div class="col-md-12" id="letters-guessed">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Load the associated JavaScript files -->
+		<script type="text/javascript" src="assets/javascript/game.js"></script>
+		<script type="text/javascript" src="assets/javascript/movie.js"></script>
+
+	</body>
+
+</html>
