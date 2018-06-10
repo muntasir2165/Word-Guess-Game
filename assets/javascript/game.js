@@ -133,6 +133,7 @@ function initializeGameState() {
 	// console.log(movieArray);
 	// console.log("hi2");
 	gameState.chosenMovie = chooseMovie(movieArray);
+	// console.log the chosen movie name (for debugging and perhaps cheating purposes!)
 	console.log("The movie title is: " + gameState.chosenMovie.movieName);
 	gameState.remainingGuesses = 9;
 	gameState.guessedLetters = [];
