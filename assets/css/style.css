@@ -4,3 +4,29 @@
 	border-style: solid;
 	border-color: red;
 }*/
+
+body {
+	background: url(../images/deadpool-movie-wallpaper.jpg) center center no-repeat fixed #464646;
+
+    /*This is what makes the background image rescale based on the container's size
+    Use vendor prefixes to support different browsers*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    color: #ffffff;
+}
+
+.game-statistics {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	border-radius: 15px;
+}
+
+#game-instructions {
+	text-decoration: underline;
+}
+
+#game-feedback {
+	background-color: #000000;
+}

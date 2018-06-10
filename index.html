@@ -7,6 +7,9 @@
 	 	<title>Movie Name Guessing Game</title>
 	 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!-- Favicon for the webpage -->
+	 	<link rel="icon" href="assets/images/deadpool-favicon.jpg" type="image/jpeg" sizes="16x16">
+
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
@@ -30,33 +33,39 @@
 
 		<div class="container text-center">
 
-			<div class="row">
+			<div class="row mt-5">
 				<div class="col-md-12">
-					Guess The Movie Name!
+					<h1>Guess The Movie Name!</h1>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12" id="starting-instructions">
-					Press Space Bar to start the game.
+					<h3><span id="game-instructions">Press Space Bar to start the game.</span></h3>
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row mt-5">
 				<div class="col-md-4">
-					<p>Wins: <span id="wins"></span></p>
+					<p class="game-statistics btn-success btn-lg" id="win-statistics">Wins:<br><span id="wins"></span></p>
 				</div>
 				<div class="col-md-4">
-					<p>Number of guesses remaining: <span id="remaining-guesses"></span></p>
+					<p class="game-statistics btn-info btn-md">Guesses Remaining:<br><span id="remaining-guesses"></span></p>
 				</div>
 				<div class="col-md-4">
-					<p>Losses: <span id="losses"></span></p>
+					<p class="game-statistics btn-danger btn-lg" id="loss-statistics">Losses:<br><span id="losses"></span></p>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-8 offset-md-2 offset-md-right-2">
-					<p>Letters Guessed: </p>
+			<div class="row mt-5">
+				<div class="col-md-8 offset-md-2 offset-md-right-2 game-statistics btn-primary btn-lg">
+					<h4 id="movie-name"></h4>
+				</div>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col-md-8 offset-md-2 offset-md-right-2 game-statistics btn-warning btn-lg">
+					<h4>Letters Guessed So Far:</h4>
 					<div class="row">
 						<div class="col-md-12" id="letters-guessed">
 						</div>
@@ -64,9 +73,9 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-10 offset-md-1 offset-md-right-1">
-					<p id="word-container"></p>
+			<div class="row mt-4">
+				<div class="col-md-8 offset-md-2 offset-md-right-2">
+					<h5 id="game-feedback"></h5>
 				</div>
 			</div>
 
@@ -74,7 +83,6 @@
 
 		<!-- Load the associated JavaScript files -->
 		<script type="text/javascript" src="assets/javascript/game.js"></script>
-		<script type="text/javascript" src="assets/javascript/movie.js"></script>
 
 	</body>
 
