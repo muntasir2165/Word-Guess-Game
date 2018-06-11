@@ -160,7 +160,7 @@ function updateGame(guessedLetter) {
 			if (alphabetArray.indexOf(character) <= -1) {
 				movieNameToDisplay += character;
 			} else {
-			movieNameToDisplay += "-";
+			movieNameToDisplay += "_";
 			}	
 		});
 
@@ -196,7 +196,7 @@ function updateGame(guessedLetter) {
 			if (alphabetArray.indexOf(character) <= -1 || gameState.guessedLetters.indexOf(character) > -1) {
 				movieNameToDisplay += character;
 			} else {
-				movieNameToDisplay += "-";
+				movieNameToDisplay += "_";
 			}	
 		});
 	}
@@ -219,11 +219,11 @@ function updateGame(guessedLetter) {
 	// out of the guess limit and the game is won
 	// OR
 	// the player is out of guesses and the game is lost
-	if (movieNameToDisplay.indexOf("-") <= -1 && gameState.remainingGuesses >= 1) {
+	if (movieNameToDisplay.indexOf("_") <= -1 && gameState.remainingGuesses >= 1) {
 		gameState.wins++;
 		provideGameFeedback("win");
 		setTimeout(playSet(), 1000);
-	} else if (movieNameToDisplay.indexOf("-") > -1 && gameState.remainingGuesses <= 0) {
+	} else if (movieNameToDisplay.indexOf("_") > -1 && gameState.remainingGuesses <= 0) {
 		gameState.losses++;
 		provideGameFeedback("loss");
 		// playSet();
