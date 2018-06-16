@@ -14,12 +14,13 @@ var page = 0;
 var gameState = {};
 
 $(document).ready(function() {
+	play();
+});
+
+function play() {
 	document.onkeyup = function(event) {
-    	// console.log(event);
-    	// console.log(event.code);
 		//if the space bar button is pressed, start the game
 		if(!hasGameStarted && event.code === "Space") {
-			console.log("YeeeH");
 			startOrStopGame();
 			
 			//developer api key
@@ -48,13 +49,8 @@ $(document).ready(function() {
 					movie.description = movieData["overview"];
 					movieArray.push(movie);
 					});
-					// console.log(movieArray);
+					// use the following line to play the game with only two movies for (debugging purposes)
 					// movieArray = movieArray.splice(0, 2);
-					// var count = 0;
-					// movieArray.forEach(function(movie){
-					// 	console.log(count++)
-					// 	console.log(movie);
-					// });
 
 					playSet();
 				},
@@ -65,7 +61,7 @@ $(document).ready(function() {
 			});
 		}
 	};
-});
+}
 
 // start game and set game parameters
 // OR
@@ -83,38 +79,34 @@ function startOrStopGame() {
 		provideGameFeedback("general", "");	
 	} else {
 		hasGameStarted = false;
+		console.log("hasGameStarted value: " + hasGameStarted);
 		startingInstructionsStyle = "visibility: visible";
 		var feedback = "Player statistics for the last set of games: " + gameState.wins + " wins and " + gameState.losses + " losses";
 		provideGameFeedback("general", feedback);	
-		// gameState = {"wins": "",
-		// 	"remainingGuesses": "",
-		// 	"losses": "",
-		// 	"guessedLetters": [],
-		// 	"chosenMovie": {}};
+		gameState = {"wins": "",
+			"remainingGuesses": "",
+			"losses": "",
+			"guessedLetters": [],
+			"chosenMovie": {}};
+		play();
 	}
 	// show/hide the starting instructions
 	var startingInstructions = document.getElementById("starting-instructions");
 	startingInstructions.style = startingInstructionsStyle;
 }
 function playSet() {
-	// console.log(movieArray);
-	// console.log(movieArray.length);
 	if (movieArray.length > 0) {
 	console.log("New Game Started!");		
-		// updateGameState();
-		// updateWordState();
 		initializeGameState();
 		playGame();
 	} else {
 		provideGameFeedback("general", "Game Over");
-		// setTimeout(startOrStopGame(), 1000);
 		startOrStopGame();
 	};
 }
 
 function playGame() {
 	document.onkeyup = function(event) {
-		// console.log(event);
 		if (hasGameStarted) {
 			if (event.code !== "Space" && alphabetArray.indexOf(event.key.toUpperCase()) > -1 ) {
 				provideGameFeedback("general", "");
@@ -123,15 +115,11 @@ function playGame() {
 				provideGameFeedback("general", "Please only input letters from the English alphabet");
 			}
 		}
-	}
+	};
 }
 
 // initialize game state
 function initializeGameState() {
-	// randomly choose a movie for the game
-	// console.log("hi2");
-	// console.log(movieArray);
-	// console.log("hi2");
 	gameState.chosenMovie = chooseMovie(movieArray);
 	// console.log the chosen movie name (for debugging and perhaps cheating purposes!)
 	console.log("The movie title is: " + gameState.chosenMovie.movieName);
@@ -265,13 +253,7 @@ function provideGameFeedback(status, data) {
 // helper function to randomly select a movie from the movieArray,
 // remove it from the array and then return it
 function chooseMovie(movieArray) {
-	// console.log("starting the chooseMovie function:");
-	// console.log(movieArray);
 	var index = [Math.floor(Math.random()*movieArray.length)];
 	var chosenMovie = movieArray.splice(index, 1)[0];
-	// console.log(chosenMovie);
-	// console.log("-----");
-	// console.log(movieArray);
-	// console.log("ending the chooseMovie function:");
 	return chosenMovie;
 }
