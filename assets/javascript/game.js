@@ -121,6 +121,7 @@ function playGame() {
 // initialize game state
 function initializeGameState() {
 	gameState.chosenMovie = chooseMovie(movieArray);
+	hideHintButton();
 	// console.log the chosen movie name (for debugging and perhaps cheating purposes!)
 	console.log("The movie title is: " + gameState.chosenMovie.movieName);
 	gameState.remainingGuesses = 9;
@@ -221,6 +222,10 @@ function updateGame(guessedLetter) {
 	wins.innerHTML = gameState.wins;
 	losses.innerHTML = gameState.losses;
 	remainingGuesses.innerHTML = gameState.remainingGuesses;
+
+	if (gameState.remainingGuesses <= 3) {
+		displayHintButton();
+	}
 }
 
 // acceptable string parameter values for the provideGameFeedback function:
@@ -259,4 +264,22 @@ function chooseMovie(movieArray) {
 }
 
 
-// TODO: add a "Hint" button that shows up in the display when the player has only 3 guesses left. Clicking the "Hint" button will display the movie overview to the user so that they can make a more educated guess as to what the movie name is
+// display a "Hint" button that shows up in the display 
+// when the player has only 3 guesses left. Clicking the 
+// "Hint" button will display the movie overview to the 
+// user so that they can make a more educated guess as to 
+// what the movie name is
+function displayHintButton() {
+	var getHintButton = document.getElementById("hint-button");
+	getHintButton.setAttribute("style", "display: visible");
+	getHintButton.onclick = function() { 
+		alert("Movie Description: " + gameState.chosenMovie.description); 
+	}
+}
+
+function hideHintButton() {
+	var getHintButton = document.getElementById("hint-button");
+	getHintButton.setAttribute("style", "display: none");
+}
+
+
