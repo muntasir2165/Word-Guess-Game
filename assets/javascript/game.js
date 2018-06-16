@@ -257,3 +257,6 @@ function chooseMovie(movieArray) {
 	var chosenMovie = movieArray.splice(index, 1)[0];
 	return chosenMovie;
 }
+
+
+// TODO: add a "Hint" button that shows up in the display when the player has only 3 guesses left. Clicking the "Hint" button will display the movie overview to the user so that they can make a more educated guess as to what the movie name is
