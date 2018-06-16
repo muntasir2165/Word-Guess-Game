@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 function play() {
 	document.onkeyup = function(event) {
-		//if the space bar button is pressed, start the game
+		//if the space bar button is pressed when the game hasn't started yet / previous game ended, start the game
 		if(!hasGameStarted && event.code === "Space") {
 			startOrStopGame();
 			
